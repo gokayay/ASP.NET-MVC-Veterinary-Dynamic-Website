@@ -1,0 +1,53 @@
+﻿@model IEnumerable<mvcVeteriner_temiz.Models.Services>
+
+@{
+    ViewBag.Title = "Hizmetler";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<h4>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statement)
+        </td>
+        <td>
+            <img src="@Url.Content("~/VeterinerImages/"+item.ImagePath)" width="200" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ID })
+            @Html.ActionLink("Resim Ekle", "AddImage", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

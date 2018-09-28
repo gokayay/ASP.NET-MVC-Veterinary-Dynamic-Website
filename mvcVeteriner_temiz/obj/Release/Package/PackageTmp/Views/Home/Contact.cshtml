@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="breadcrumb">
+    <ul>
+        <li class="first">Buradasınız</li>
+        <li>&raquo;</li>
+        <li><a href="~/Home/Index">Anasayfa</a></li>
+        <li>&raquo;</li>
+        <li class="current"><a href="~/Home/Contact">İletişim</a></li>
+        <li>&raquo;</li>
+    </ul>
+</div>
+<br><br>
+
+<div id="body">
+    <div class="header">
+
+
+        <div id="breadcrumb">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.9402549251113!2d28.826813315183735!3d41.02656302624865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa4e592bd86e7%3A0x2c7d1062fe6b7158!2zR8O8bmXFn2xpIFZldGVyaW5lciBLbGluacSfaQ!5e0!3m2!1str!2str!4v1502881906981" width="900" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+
+        <br />
+        <div id="breadcrumb">
+
+            <div class="subnav">
+                <h4 style="font-size:25px"><strong>İletişim Bilgileri</strong></h4>
+                <br />
+                <p><strong>Telefon:</strong> 0212 550 5838</p>
+                <hr />
+                <p><strong>Cep Telefonu:</strong> 0536 546 2237</p>
+                <hr />
+                <p><strong>Adres:</strong>  Bağlar Mahallesi Atatürk Caddesi No:44/B Güneşli/İstanbul</p>
+
+            </div>
+        </div>
+        <br />
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "contact-form", action = "/iletisim" }))
+        {
+            if (ViewBag.Success != null && ViewBag.Success)
+            {
+                <div id="wrapper">
+                    <div id="message-sent">
+                        <span class="mesajbasari"> Mesajınız başarıyla gönderilmiştir.</span>
+                    </div>
+                </div>
+            }
+        }
+
+
+
+        <div class="contact"><br />
+            <h1>BİZİMLE İLETİŞİME GEÇİN</h1><br />
+            <form action="#" method="post">
+                <noscript>
+                    <p><input type="hidden" name="nojs" id="nojs"></p>
+                </noscript>
+
+
+                <br><p><label for="name"><small>İsim (gerekli)</small></label>
+                    <input type="text" name="Name" id="name" value="" size="22">
+                </p>
+                <p><label for="email"><small>E-Posta (gerekli)</small></label>
+                    <input type="text" name="Email" id="email" value="" size="22">
+                </p>
+                <p><label for="phone"><small>Telefon </small></label>
+                    <input type="text" name="Phone" id="phone" value="" size="22">
+                </p>
+                <p><label for="comments"><small>Mesajınız (gerekli)</small></label>
+                    <textarea name="Message" id="comments" rows="10"></textarea>
+                </p>
+                <p>
+                    <input name="reset" type="reset" id="reset" value="Sıfırla">
+                    
+                    <input name="submit" type="submit" id="submit" value="Gönder">
+                </p>
+            </form>
+
+        </div>
+
+        <br />
+
+        @* ************************************************************************************************ *@
+
+
+
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+

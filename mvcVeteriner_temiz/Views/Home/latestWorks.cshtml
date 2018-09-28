@@ -1,0 +1,16 @@
+﻿@using mvcVeteriner_temiz.Models
+
+@model IEnumerable<mvcVeteriner_temiz.Models.LatestWorks>
+<div class="row">
+    
+        <article class="latestgallery">
+            <h2>Son Çalışmalarımız</h2>
+            @foreach (var item in Model)
+            {
+                <ul>
+                    <li><a href="~/VeterinerImages/@item.ImagePath" data-gal="prettyPhoto[gallery]" title="@item.ImageTitle"><img src="~/VeterinerImages/@item.ImagePath" alt="" width="150" height="95"></a></li>
+                </ul>
+            }
+        </article><div class="clear"></div>
+   
+</div>

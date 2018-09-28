@@ -1,0 +1,62 @@
+﻿@using mvcVeteriner_temiz.Models
+
+@model IEnumerable <mvcVeteriner_temiz.Models.Services>
+@{
+    ViewBag.Title = "Hizmetlerimiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div id="breadcrumb">
+        <ul>
+            <li class="first">Buradasınız</li>
+            <li>&raquo;</li>
+            <li><a href="~/Home/Index">Anasayfa</a></li>
+            <li>&raquo;</li>
+            <li class="current"><a href="~/Home/OurServices">Hizmetlerimiz</a></li>
+            <li>&raquo;</li>
+        </ul>
+    </div>
+    <div class="header">
+       
+            
+                @foreach (var item in Model)
+                {
+                 
+                        <div class="portfolio">
+
+                            <div class="tagline_left">
+                                <h2>@item.Title</h2>
+                                <p>@item.Statement</p>
+
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class="tagline_right"><a href="~/VeterinerImages/@item.ImagePath" data-gal="prettyPhoto" title="@item.Title"><img src="~/VeterinerImages/@item.ImagePath" alt=""></a></div>
+
+                            <div class="clear"></div>
+                        </div>
+                   
+                }
+       
+    </div>
+
+        @*<div class="box">
+            @foreach (var item in Model)
+            {
+            <div class="portfolio">
+               
+                <div class="tagline_left">
+                    <h2>@item.Title</h2>
+                    <p>@item.Statement</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                </div>
+                <div class="tagline_right"><a href="~/VeterinerImages/@item.ImagePath" data-gal="prettyPhoto" title="@item.Title"><img src="~/VeterinerImages/@item.ImagePath" alt=""></a></div>
+                
+                <div class="clear"></div>
+            </div>}
+            
+            <div class="clear"></div>
+        </div>*@
+
+<br><div class="clear"></div>

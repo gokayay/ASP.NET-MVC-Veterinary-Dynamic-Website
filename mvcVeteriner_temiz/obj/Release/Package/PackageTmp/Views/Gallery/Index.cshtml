@@ -1,0 +1,41 @@
+﻿@model IEnumerable<mvcVeteriner_temiz.Models.Gallery>
+
+@{
+    ViewBag.Title = "Galeri";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Galeri</h2>
+
+<h4>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@Url.Content("~/VeterinerImages/"+item.ImagePath)" width="300" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageTitle)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Resim Ekle", "AddImage", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

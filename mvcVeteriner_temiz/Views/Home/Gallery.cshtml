@@ -1,0 +1,32 @@
+﻿@using mvcVeteriner_temiz.Models
+
+@model IEnumerable<mvcVeteriner_temiz.Models.Gallery>
+@{
+    ViewBag.Title = "Galeri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        <div id="breadcrumb">
+            <ul>
+                <li class="first">Buradasınız</li>
+                <li>&raquo;</li>
+                <li><a href="~/Home/Index">Anasayfa</a></li>
+                <li>&raquo;</li>
+                <li class="current"><a href="~/Home/Gallery">Galeri</a></li>
+                <li>&raquo;</li>
+            </ul>
+        </div>
+    <div class="header">
+        <br>
+        <div id="gallery">
+            <ul>
+                @foreach (var item in Model)
+            {
+                    <li><a data-gal="prettyPhoto[gallery2]" href="~/VeterinerImages/@item.ImagePath" title="@item.ImageTitle"><img src="~/VeterinerImages/@item.ImagePath" width="500" height="350" alt="@item.ImageTitle"></a></li>
+                }
+            </ul><br class="clear">
+        </div>
+    </div>
+        <br><div class="clear"></div>
+    
+

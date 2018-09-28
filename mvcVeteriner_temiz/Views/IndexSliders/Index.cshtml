@@ -1,0 +1,47 @@
+﻿@model IEnumerable<mvcVeteriner_temiz.Models.IndexSlider>
+
+@{
+    ViewBag.Title = "Kaydırıcılar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Kaydırıcılar</h2>
+
+<h4>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Statement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Statement)
+        </td>
+        <td>
+           <img src="@Url.Content("~/VeterinerImages/"+item.ImagePath)" width="300"/>
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("Resim Ekle", "AddImage", new { id=item.ID})
+        </td>
+    </tr>
+}
+
+</table>

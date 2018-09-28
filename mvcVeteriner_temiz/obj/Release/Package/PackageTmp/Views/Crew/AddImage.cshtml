@@ -1,0 +1,20 @@
+﻿@model mvcVeteriner_temiz.Models.Crew
+
+@{
+    ViewBag.Title = "Resim Ekle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4>Resim Eklenen Ürün: @Model.ImageTitle</h4>
+
+<br />
+@using (Html.BeginForm("AddImage", "Crew", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <input type="file" name="Folders" /> <br />
+    <input type="submit" value="Ekle!" />
+}
+@if (ViewBag.Mesaj != null)
+{
+    <p style="color:red">@ViewBag.Mesaj</p>
+}
